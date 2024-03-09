@@ -59,4 +59,18 @@ Commands for **system stuff**:
 ``docker system``
 - df - for showing docker disk usage
 - events - refresh actual events
-- prune -a - remove images 
+- prune -a - remove images
+
+## Creating image
+
+Example form for building image:
+- FROM python:alpine - base laer of the image. The next layers  will be overlap on this one
+- WORKDIR /app - creating and NAVIGATING to the application folder /app. So application files will be in one place
+- COPY . /app - copying files from your current path (.) to the destination (/app)
+- RUN pip install -r requirements.txt - running command in command prompt (in this example installing python package from the requirements file)
+- EXPOSE 1234 - exposing port 1234
+- CMD python ./launch.py - startng application running python file launch.py
+
+To build image, go to the folder witth Dockerfile and run the next command:
+
+``docker build -t [NAME]:{VERSION} .`` - where name and version mean name of the image and version respectively
