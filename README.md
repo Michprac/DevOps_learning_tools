@@ -69,8 +69,14 @@ Example form for building image:
 - COPY . /app - copying files from your current path (.) to the destination (/app)
 - RUN pip install -r requirements.txt - running command in command prompt (in this example installing python package from the requirements file)
 - EXPOSE 1234 - exposing port 1234
-- CMD python ./launch.py - startng application running python file launch.py
+- CMD python ./main.py - startng application running python file launch.py
+
+!!! Also instead of using ``CMD python ./main.py`` you can use command ``ENTRYPOINT ["python", "/main.py"]``. The differenc of these commands is that the first one can be replaced bu putting any command after ``run`` (like ping site.com). But for the second command, you should use option ``--entrypoint [COMMAND]`` for replacement. The second variant is more prefered. 
 
 To build image, go to the folder witth Dockerfile and run the next command:
 
 ``docker build -t [NAME]:{VERSION} .`` - where name and version mean name of the image and version respectively
+
+To push your created image on the Docker Hub you can  run the command:
+
+``docker push [NAME]:[VERSION]``
