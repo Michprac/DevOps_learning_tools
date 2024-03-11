@@ -54,13 +54,16 @@ Commands for **cotainers**:
 - -kill [ID] - stop a container immediately without additional time for ending processes of the container
 - -prune - deletes all inactive containers
 
-Commands for **system stuff**:
+Commands for **system stuff** and other:
 
 ``docker system``
 - df - for showing docker disk usage
 - events - refresh actual events
 - prune -a - remove images
 
+``docker network``
+- ls - shows networks in the docker, e.g. bridge
+- inspect [NAME] - shows detailed information about network, where NAME can be e.g. bridge
 ## Creating image
 
 Example form for building image:
@@ -80,3 +83,19 @@ To build image, go to the folder witth Dockerfile and run the next command:
 To push your created image on the Docker Hub you can  run the command:
 
 ``docker push [NAME]:[VERSION]``
+
+## Microservices
+
+Microservice - it is small applicatio. Instead of deploying one monolit application user can split application with multiple microservice. The famous technology that can be introduced here called *Microservices chain*:
+
+```mermaid
+graph LR
+A[Miroservice 1] --> B[Microservice 2]
+B --> C[Microservice 3]
+C --> D[Microservice 4]
+```
+
+So you can imagine microservice simply like separete containers. By default they are not connected (Bridge Network).
+
+The first option of establish communication between containers is the next one. When you have 2 containers in the bridge network, you can use option ``--link [NAME_CONTAINER_1]`` when creating the second container.
+
