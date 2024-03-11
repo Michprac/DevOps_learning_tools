@@ -95,7 +95,26 @@ B --> C[Microservice 3]
 C --> D[Microservice 4]
 ```
 
-So you can imagine microservice simply like separete containers. By default they are not connected (Bridge Network).
+So you can imagine microservice simply like separete containers. By default they are not connected.
 
-The first option of establish communication between containers is the next one. When you have 2 containers in the bridge network, you can use option ``--link [NAME_CONTAINER_1]`` when creating the second container.
+The first option of establish communication between containers is called bridge network. When you have 2 containers in the bridge network, you can use option ``--link [NAME_CONTAINER_1]`` when creating the second container. Also you need to specify global variable of the address on which your first cntainer can be availale, it looks like ``--env GLOBAL_VAR=*http://NAME_CONTAINER_1*``.
+
+The second option called host network. But this option is not suitable if the user works on Mac or Windows.
+
+And the third option is creating custom network. For this purpose you can use command ``docker network create [NAME]``. The next step is to create two container with a special option ``--netwok=[NAME]``, which means adding containers to this custom network. Global variable remains the same as it was in the first variant.
+
+## Docker Compose
+
+Is used in the situations when we have multiple containers and we need them communicate to each other. SO in simple words, all instructions that were written in the command prompt will be written in the one file *docker-compose.yml*
+To run this file you can use a command ``docker-compose up (-d for the detached)``.
+
+To stop and remove containers with network you can use command ``docker-compose down``.
+
+Commands:
+- ``docker-compose events`` - actual events
+- ``docker-compose config`` - docker-compose.yml file architecture, helps to find type-mistake.
+-  ``docker-compose images`` - shows images
+-  ``docker-compose top`` - shows top processes, that are running in each container.
+-  ``docker-compose stop, kill, un/pause`` - the same as for ``docker container``
+
 
