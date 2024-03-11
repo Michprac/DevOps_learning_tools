@@ -105,7 +105,11 @@ And the third option is creating custom network. For this purpose you can use co
 
 ## Docker Compose
 
-Is used in the situations when we have multiple containers and we need them communicate to each other. SO in simple words, all instructions that were written in the command prompt will be written in the one file *docker-compose.yml*
+Is used in the situations when we have multiple containers and we need them communicate to each other. SO in simple words, all instructions that were written in the command prompt will be written in the one file *docker-compose.yml*.
+The structure and dependednses of microservice in the .yml file you can see in the image below:
+![sdgsd!](/docker_img/microservices_yml.png)
+
+
 To run this file you can use a command ``docker-compose up (-d for the detached)``.
 
 To stop and remove containers with network you can use command ``docker-compose down``.
