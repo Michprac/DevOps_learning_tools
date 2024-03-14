@@ -128,10 +128,19 @@ This tool helps to manage a big amount of containers.
 
 ## Useful commands
 
-Kubectl stands for Kubernetes control.
+Kubectl stands for Kubernetes control. Structure of Kubernetes can be described with pods and nodes. Pod has a uniqe IP address, each pod can have multiple containers. Node contains pods, it is a host. On the image below, you can see structure:
 
-- kubectl create deploument [CLUSTER NAME] --image=[IMAGE NAME]:[TAG] - deployment of the kubernetes cluster
-- kubectl expose deploument [CLUSTER NAME] --type=LoadBalancer --port=1234 - exposing cluster for demonstrating on the port 1234
+<p align="center">
+  <img src="/kubernetes_img/pods_nodes.png" width=500 align:middle>
+</p>
+
+- ``kubectl create deploument [CLUSTER NAME] --image=[IMAGE NAME]:[TAG]`` - deployment of the kubernetes cluster
+- ``kubectl expose deploument [CLUSTER NAME] --type=LoadBalancer --port=1234`` - exposing cluster for demonstrating on the port 1234
+
+For show:
+
+- ``kubectl get pods`` - show all pods
+- ``kubectl get replicaset`` - show all replicas
+- ``kubectl get deployment`` - show all deployments
 - 
-
 
