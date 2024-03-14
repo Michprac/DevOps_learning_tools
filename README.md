@@ -118,8 +118,20 @@ To stop and remove containers with network you can use command ``docker-compose 
 Commands:
 - ``docker-compose events`` - actual events
 - ``docker-compose config`` - docker-compose.yml file architecture, helps to find type-mistake.
--  ``docker-compose images`` - shows images
--  ``docker-compose top`` - shows top processes, that are running in each container.
--  ``docker-compose stop, kill, un/pause`` - the same as for ``docker container``
+- ``docker-compose images`` - shows images
+- ``docker-compose top`` - shows top processes, that are running in each container.
+- ``docker-compose stop, kill, un/pause`` - the same as for ``docker container``
+
+# Kubernetes
+
+This tool helps to manage a big amount of containers.
+
+## Useful commands
+
+Kubectl stands for Kubernetes control.
+
+- kubectl create deploument [CLUSTER NAME] --image=[IMAGE NAME]:[TAG] - deployment of the kubernetes cluster
+- kubectl expose deploument [CLUSTER NAME] --type=LoadBalancer --port=1234 - exposing cluster for demonstrating on the port 1234
+- 
 
 
