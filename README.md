@@ -124,23 +124,32 @@ Commands:
 
 # Kubernetes
 
-This tool helps to manage a big amount of containers.
+This tool helps to manage a big amount of containers. It is declarative, so we can describe the result we want in the YAML file.
 
 ## Useful commands
 
-Kubectl stands for Kubernetes control. Structure of Kubernetes can be described with pods and nodes. Pod has a uniqe IP address, each pod can have multiple containers. Node contains pods, it is a host. On the image below, you can see structure:
+Kubectl stands for Kubernetes control. Structure of Kubernetes can be described with pods and nodes. You can imagine pod as a container for our containers. Pod has a uniqe IP address, each pod can have multiple containers. You can give specific name dor your pod to describe containers inside, e.g. Development or Production. Node contains pods, it is a host. On the image below, you can see structure:
 
 <p align="center">
-  <img src="/kubernetes_img/pods_nodes.png" width=500 align:middle>
+  <img src="/kubernetes_img/pods_nodes.png" align:middle>
 </p>
 
-- ``kubectl create deploument [CLUSTER NAME] --image=[IMAGE NAME]:[TAG]`` - deployment of the kubernetes cluster
-- ``kubectl expose deploument [CLUSTER NAME] --type=LoadBalancer --port=1234`` - exposing cluster for demonstrating on the port 1234
+Replicasets insures that specific number of pods are running.
+
+- ``kubectl create deploument [DEPLOYMENT_NAME] --image=[IMAGE NAME]:[TAG]`` - deployment of the kubernetes cluster
+- ``kubectl expose deploument [DEPLOYMENT_NAME] --type=LoadBalancer --port=1234`` - exposing cluster for demonstrating on the port 1234
+- ``kubectl scale deployment [DEPLOYMENT_NAME] --replicas=3`` - increasing number of pods to 3
+- ``kubectl set image deployment [DEPLOYMENT_NAME] [DEPLOYMENT_NAME]=[IMAGE_NMAE]:[TAG]`` - setting new version of the application to the deployment
+- ``kubectl apply -f [FILE.YAML]``
+- ``kubectl delete all -l app=hello-world-rest-api`` - deleting of deployment, pods, services
 
 For show:
 
+- ``kubectl get events --sort-by=.metadata.creationTimestamp`` - show all events that happened with sorting by time
 - ``kubectl get pods`` - show all pods
-- ``kubectl get replicaset`` - show all replicas
+- ``kubectl describe pod [POD_ID]`` - show description of the specific pod
+- ``kubectl get replicaset/rs [-o wide]`` - show all replicasets, number of pods run at all time, where *-o wide* it is used for more info
+- ``kubectl delete pods [POD_NAME]`` - delete pod
 - ``kubectl get deployment`` - show all deployments
-- 
+- ``kubectl get componentstatuses`` - show status of components of master node
 
