@@ -20,6 +20,8 @@ flowchart TD
   B1 --> E[Container 0.0.3]
 ```
 
+A good feature of the Docker is optimalization of the memmory use. If you want to build different versions of the image, Docker look through a cash to use already completed and not changed levels. Such process is called **layer caching**.
+
 ## Useful commands
 Explanation of some commands:
 - ``docker run [OPTION] [NAME]:[TAG]``  this command used for running container. If the image wasn't find locally it would be pulled from Docker Hub
