@@ -105,6 +105,12 @@ The second option called host network. But this option is not suitable if the us
 
 And the third option is creating custom network. For this purpose you can use command ``docker network create [NAME]``. The next step is to create two container with a special option ``--netwok=[NAME]``, which means adding containers to this custom network. Global variable remains the same as it was in the first variant.
 
+## Volumes
+
+Allows to mapp your local host folder to the folder in a container. 
+
+``docker run --name abc --rm -v C:\your\project\path:/app -p 40:345 image_app:v1`` - mapps project directory **C:\your\project\path** on the local host to the directory **/app** in the container
+
 ## Docker Compose
 
 Is used in the situations when we have multiple containers and we need them communicate to each other. SO in simple words, all instructions that were written in the command prompt will be written in the one file *docker-compose.yml*.
