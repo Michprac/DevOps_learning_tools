@@ -1,6 +1,14 @@
 # DevOps tools
 In this repositorium, I'm trying to learn tools for DevOps and understand their using purpose.
 
+# Linux on Windows
+
+If a user works on the Windows OS, good choice of studying Linux can be thing called WSL ([Windows Subsystem for Linux][https://learn.microsoft.com/en-us/windows/wsl/install]). If I understood correctly, installing WSL can provide you Linux subenvironment on your Windows system. Advantages:
+
+- Helpful during Docker installation on Windows, because Docker is based on Linux
+
+- Useful for Linux learning using terminal. Users shouldn't install additional programs like VirtualBox
+
 # Docker
 
 We use Docker for running some applications in containers. Users shouldn't prepare their own environment (downloading software, configure it, etc), but they can just download prepared image with requiered settings.
